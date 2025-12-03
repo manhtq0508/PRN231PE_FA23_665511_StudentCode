@@ -20,7 +20,7 @@ public class CreateSilverJewelryDTO
     public decimal Price { get; set; }
 
     [Required(ErrorMessage = "ProductionYear is required")]
-    [Range(1990, int.MaxValue, ErrorMessage = "Production year must be from 1990")]
+    [Range(1900, int.MaxValue, ErrorMessage = "Production year must be greater than or equal to 1900")]
     public int ProductionYear { get; set; }
 
     [Required(ErrorMessage = "CategoryId is required")]

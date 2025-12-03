@@ -22,7 +22,7 @@ public class SilverJewelryViewModel
     public decimal Price { get; set; }
     
     [Required(ErrorMessage = "Production Year is required")]
-    [Range(1900, 2100, ErrorMessage = "Production Year must be between 1900 and 2100")]
+    [Range(1900, int.MaxValue, ErrorMessage = "Production Year must be greater than or equal to 1900")]
     public int ProductionYear { get; set; }
     
     [Required(ErrorMessage = "Created Date is required")]
