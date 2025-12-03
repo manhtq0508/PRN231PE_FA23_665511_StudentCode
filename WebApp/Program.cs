@@ -1,7 +1,27 @@
+using WebApp.Services;
+using WebApp.Filters;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add HttpContextAccessor
+builder.Services.AddHttpContextAccessor();
+
+// Add Session
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(1);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// Add HttpClient and ApiService
+builder.Services.AddHttpClient<ApiService>();
+
+// Register AuthenticationFilter
+builder.Services.AddScoped<AuthenticationFilter>();
 
 var app = builder.Build();
 
@@ -15,6 +35,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

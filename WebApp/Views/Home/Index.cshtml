@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Welcome, @ViewBag.UserName!</h1>
+                    <p class="card-text">You are successfully logged in.</p>
+                    <hr />
+                    <div class="mb-3">
+                        <strong>Email:</strong> @ViewBag.UserEmail
+                    </div>
+                    <div class="mt-4">
+                        <a href="/Auth/Logout" class="btn btn-danger">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

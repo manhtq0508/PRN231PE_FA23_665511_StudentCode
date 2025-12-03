@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Silver Jewelry";
+}
+
+<div class="container mt-4">
+    <h1>Silver Jewelry Management</h1>
+    <hr />
+    
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+    
+    @if (ViewBag.Data != null)
+    {
+        <div class="alert alert-success">
+            <h4>API Response:</h4>
+            <pre>@System.Text.Json.JsonSerializer.Serialize(ViewBag.Data, new System.Text.Json.JsonSerializerOptions { WriteIndented = true })</pre>
+        </div>
+    }
+    
+    <div class="mt-3">
+        <p>This page demonstrates API calls with JWT authentication.</p>
+        <p>The JWT token from your login session is automatically included in the Authorization header.</p>
+    </div>
+</div>
