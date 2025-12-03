@@ -39,6 +39,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddScoped<IBranchAccountRepository, BranchAccountRepository>();
 builder.Services.AddScoped<ISilverJewelryRepository, SilverJewelryRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 // Add services to the container.
 

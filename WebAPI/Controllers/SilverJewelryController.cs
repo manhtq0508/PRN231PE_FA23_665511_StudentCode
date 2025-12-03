@@ -55,6 +55,7 @@ public class SilverJewelryController : ControllerBase
         }
 
         var silverJewelry = silverJewelryCreateDTO.Adapt<SilverJewelry>();
+        silverJewelry.CreatedDate = new DateOnly(DateTime.UtcNow.Year, DateTime.UtcNow.Month, DateTime.UtcNow.Day);
         await _silverJewelryRepo.AddSilverJewelryAsync(silverJewelry);
 
         return CreatedAtAction(nameof(GetSilverJewelryById), new { id = silverJewelry.Id }, null);
@@ -77,6 +78,7 @@ public class SilverJewelryController : ControllerBase
         }
         var updatedSilverJewelry = silverJewelryUpdateDTO.Adapt<SilverJewelry>();
         updatedSilverJewelry.Id = id;
+        updatedSilverJewelry.CreatedDate = existingSilverJewelry.CreatedDate;
         await _silverJewelryRepo.UpdateSilverJewelryAsync(updatedSilverJewelry);
         return NoContent();
     }

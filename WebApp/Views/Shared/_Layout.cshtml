@@ -33,7 +33,7 @@
                     @if (Context.Session.GetString("JWTToken") != null)
                     {
                         <ul class="navbar-nav">
-                            <li class="nav-item">
+                            <li class="nav-item d-flex align-items-center">
                                 <span class="navbar-text me-3">
                                     Welcome, @Context.Session.GetString("UserName")
                                 </span>
